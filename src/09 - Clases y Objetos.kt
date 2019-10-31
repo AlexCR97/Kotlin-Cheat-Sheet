@@ -1,3 +1,18 @@
+/**
+ * Las clases pueden ser declarados en cualquier scope (alcance), ya sea globalmente,
+ * dentro de funciones, dentro de otras clases, etc.
+ */
+
+// Esta es una clase global
+
+class ClaseGlobal {
+    val atributo = 10
+
+    fun metodo() {
+
+    }
+}
+
 fun main() {
     claseTradicional()
     claseConConstructor()
@@ -76,6 +91,28 @@ fun claseConConstructor() {
     val rect = Rectangulo(10f, 6f)
     println(rect.obtenerPerimetro())
     println(rect.obtenerArea())
+
+    /**
+     * Una clase puede tener mas de un constructor. Siempre debe de haber un constructor primario, y si
+     * se tienen mas constructores, estos deben de llamar al constructor primario
+     */
+
+    class Persona(val nombre: String) {
+
+        val amigos = ArrayList<Persona>()
+
+        constructor(nombre: String, amigo: Persona) : this(nombre) {
+            amigos.add(amigo)
+        }
+
+        constructor(nombre: String, amigos: List<Persona>) : this(nombre) {
+            this.amigos.addAll(amigos)
+        }
+    }
+
+    val pablo = Persona("Pablo")
+    val alejandro = Persona("Alejandro", pablo)
+    val johnny = Persona("Johnny", listOf(pablo, alejandro))
 }
 
 fun claseConPropiedades() {

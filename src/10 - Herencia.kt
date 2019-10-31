@@ -62,3 +62,9 @@ fun herencia() {
         }
     }
 }
+
+fun herenciaConstructores() {
+
+
+
+}
